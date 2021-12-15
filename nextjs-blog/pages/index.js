@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 // 次はこちら
-// https://nextjs.org/learn/basics/assets-metadata-css/css-styling
+// https://nextjs.org/learn/basics/assets-metadata-css/layout-component
 
 export default function Home() {
   return (
