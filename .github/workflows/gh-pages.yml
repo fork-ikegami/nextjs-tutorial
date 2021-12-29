@@ -18,22 +18,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - name: Cache
+      - name: Cache dependencies
         uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
-
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+  
       - name: Install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: |
-          npm ci
+        run: npm ci
+        working-directory: ./nextjs-blog
 
       - name: Build
         run: npm run build
-
+        
+      - name: Export
+        run: npm run export
+        
+      - name: Add nojekyll
+        run: touch ./out/.nojekyll
+      
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./out
