@@ -28,6 +28,7 @@ jobs:
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: |
           npm ci
+        working-directory: ./nextjs-blog
 
       - name: Build
         run: npm run build
