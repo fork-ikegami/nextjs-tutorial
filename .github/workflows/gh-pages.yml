@@ -32,12 +32,15 @@ jobs:
 
       - name: Build
         run: npm run build
+        working-directory: ./nextjs-blog
         
       - name: Export
         run: npm run export
+        working-directory: ./nextjs-blog
         
       - name: Add nojekyll
         run: touch ./out/.nojekyll
+        working-directory: ./nextjs-blog
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
