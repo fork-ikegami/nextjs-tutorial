@@ -39,8 +39,7 @@ jobs:
         working-directory: ./nextjs-blog
         
       - name: Add nojekyll
-        run: touch ./out/.nojekyll
-        working-directory: ./nextjs-blog
+        run: touch ./nextjs-blog/out/.nojekyll
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
