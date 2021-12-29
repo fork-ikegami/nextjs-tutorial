@@ -29,7 +29,7 @@ export default function Layout({ children, home }) {
         {home ? (
           <>
             <img
-              src="../images/profile.png"
+              src="./images/profile.png"
               className={utilStyles.borderCircle}
               height={144}
               width={144}
