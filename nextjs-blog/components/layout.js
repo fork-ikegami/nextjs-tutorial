@@ -1,8 +1,8 @@
 import Head from 'next/head'
-// import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import profileImg from '../public/images/profile.png'
 
 const name = 'IKEGAMI'
 export const siteTitle = 'Next.js Sample Website'
@@ -29,7 +29,7 @@ export default function Layout({ children, home }) {
         {home ? (
           <>
             <img
-              src="./images/profile.png"
+              src={profileImg.src}
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -42,7 +42,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <a>
                 <img
-                  src="../images/profile.png"
+                  src={profileImg.src}
                   className={utilStyles.borderCircle}
                   height={108}
                   width={108}
