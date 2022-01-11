@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import favicon from '../public/favicon.ico'
 import profileImg from '../public/images/profile.png'
 
 const name = 'IKEGAMI'
@@ -11,7 +12,7 @@ export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={favicon.src} />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
